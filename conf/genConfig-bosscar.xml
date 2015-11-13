@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration>
+  <jdbc driver="com.mysql.jdbc.Driver"
+        url="jdbc:mysql://192.168.0.16:3306/bosscar?generateSimpleParameterMetadata=true"
+        user="dev01" password="dev01@dev01">
+  </jdbc>
+
+  <baseDir>./target</baseDir>
+
+  <base>
+    <mapperExt>com.dhf.bosscar.dao.car.ext</mapperExt>
+    <mapperXmlExt>xml/com.dhf.bosscar.dao.car.ext</mapperXmlExt>
+    <controller>com.dhf.bosscar.controller</controller>
+    <service>com.dhf.bosscar.service</service>
+    <param>com.dhf.bosscar.param</param>
+    <jsp>jsp</jsp>
+    <mybatis>
+      <mapper>com.dhf.bosscar.dao.car.gen</mapper>
+      <mapperXml>xml/com.dhf.bosscar.dao.car.gen</mapperXml>
+      <mapperModel>com.dhf.bosscar.dao.car.gen.entity</mapperModel>
+    </mybatis>
+  </base>
+
+  <!--
+    mapperExt: 是否生成ext
+    service：是否生成业务类
+    controller：是否生成控制器
+    param: 是否生成参数实体
+    jsp：是否生成jsp页面
+    page: 是否生成分页方法
+    list: 是否生成list方法
+    controller="true" service="true" param="true" jsp="true" page="true" list="true"
+   -->
+  <tables mapperExt="true" controller="false" service="false" param="false" jsp="false" page="false" list="false">
+    <table name="t_city"/>
+    <table name="t_district"/>
+    <table name="t_vip_car"/>
+    <table name="t_vip_driver"/>
+
+    <table name="t_car_accident_log"/>
+    <table name="t_car_check_log"/>
+    <table name="t_car_clean_log"/>
+    <table name="t_car_clean_supplier"/>
+    <table name="t_car_dictionary"/>
+    <table name="t_car_gps"/>
+    <table name="t_car_gps_log"/>
+    <table name="t_car_handover"/>
+    <table name="t_car_maintenance"/>
+    <table name="t_car_maintenance_log"/>
+    <table name="t_car_maintenance_supplier"/>
+    <table name="t_car_violation"/>
+    <table name="t_maintenance_monitor"/>
+
+  </tables>
+
+</configuration>

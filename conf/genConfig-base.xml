@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration>
+  <!--
+    <jdbc driver="com.mysql.jdbc.Driver"
+     url="jdbc:mysql://localhost:3306/main?generateSimpleParameterMetadata=true"
+     user="vvipdhf01_main" password="wwBRp5h3o7">
+    </jdbc>
+    -->
+  <jdbc driver="com.mysql.jdbc.Driver"
+        url="jdbc:mysql://10.128.8.14:3306/dev?generateSimpleParameterMetadata=true"
+        user="dev01" password="dev01@dev01">
+  </jdbc>
+
+  <baseDir>./target</baseDir>
+
+  <base>
+    <mapperExt>com.dhf.boss.dao.base.ext</mapperExt>
+    <mapperXmlExt>xml/com.dhf.boss.dao.base.ext</mapperXmlExt>
+    <mybatis>
+      <mapper>com.dhf.boss.dao.base.gen</mapper>
+      <mapperXml>xml/com.dhf.boss.dao.base.gen</mapperXml>
+      <mapperModel>com.dhf.boss.dao.base.gen.entity</mapperModel>
+    </mybatis>
+  </base>
+
+  <tables pattern="" mapperExt="true"
+          excludes="t_card_paydetail,t_card_payuser,t_paydetail,t_payment_log,t_driver_online_time_report">
+
+    <table name="t_remark_log"/>
+
+  </tables>
+</configuration>

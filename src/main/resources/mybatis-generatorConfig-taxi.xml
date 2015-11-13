@@ -1,0 +1,459 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+    PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+    "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+  <classPathEntry location="D:/mysql-connector-java-5.1.20.jar"/>
+
+  <context id="DB2Tables" targetRuntime="MyBatis3">
+
+    <commentGenerator>
+      <property name="suppressDate" value="true"/>
+      <property name="suppressAllComments" value="true"/>
+    </commentGenerator>
+
+    <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                    connectionURL="jdbc:mysql://192.168.0.16:3306/dev?generateSimpleParameterMetadata=true"
+                    userId="dev01"
+                    password="dev01@dev01">
+    </jdbcConnection>
+
+    <javaTypeResolver>
+      <property name="forceBigDecimals" value="false"/>
+    </javaTypeResolver>
+
+    <!-- generate Model -->
+    <javaModelGenerator targetPackage="com.dhf.taxi.dao.entity" targetProject="target\">
+      <property name="enableSubPackages" value="true"/>
+      <property name="trimStrings" value="true"/>
+    </javaModelGenerator>
+
+
+    <!-- generate xml -->
+    <sqlMapGenerator targetPackage="com.dhf.taxi.dao.mapper" targetProject="target\">
+      <property name="enableSubPackages" value="true"/>
+    </sqlMapGenerator>
+
+    <!-- generate Mapper -->
+    <javaClientGenerator type="XMLMAPPER" targetPackage="com.dhf.taxi.dao.mapper" targetProject="target\">
+      <property name="enableSubPackages" value="true"/>
+      <property name="methodNameCalculator" value="org.mybatis.generator.api.DAOMethodNameCalculator"/>
+    </javaClientGenerator>
+
+    <table schema="" tableName="t_order_log" domainObjectName="TOrderLog" enableCountByExample="false"
+           enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+      <generatedKey column="log_id" sqlStatement="MySql" identity="true"/>
+    </table>
+    <table schema="" tableName="t_customer_op_log" domainObjectName="TCustomerOpLog" enableCountByExample="false"
+           enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+      <generatedKey column="log_id" sqlStatement="MySql" identity="true"/>
+    </table>
+    <table schema="" tableName="t_taxi_driver" domainObjectName="TTaxiDriver" enableCountByExample="false"
+           enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+      <generatedKey column="driver_id" sqlStatement="MySql" identity="true"/>
+    </table>
+    <table schema="" tableName="t_car_log" domainObjectName="TCarLog" enableCountByExample="false"
+           enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+      <generatedKey column="log_id" sqlStatement="MySql" identity="true"/>
+    </table>
+    <table schema="" tableName="t_car_type2" domainObjectName="TCarType2" enableCountByExample="false"
+           enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+    </table>
+    <table schema="" tableName="t_vip_product_send_rule" domainObjectName="TVipProductSendRule"
+           enableCountByExample="false" enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+      <generatedKey column="send_rule_id" sqlStatement="MySql" identity="true"/>
+    </table>
+    <table schema="" tableName="t_city_config" domainObjectName="TCityConfig" enableCountByExample="false"
+           enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+    </table>
+    <table schema="" tableName="t_taxi_companytip" domainObjectName="TTaxiCompanytip" enableCountByExample="false"
+           enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+      <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+    </table>
+    <table schema="" tableName="t_order" domainObjectName="TOrder" enableCountByExample="false"
+           enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+      <generatedKey column="order_id" sqlStatement="MySql" identity="true"/>
+    </table>
+    <table schema="" tableName="t_vip_s_product_attr" domainObjectName="TVipSProductAttr" enableCountByExample="false"
+           enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+    </table>
+    <table schema="" tableName="t_vip_car_type" domainObjectName="TVipCarType" enableCountByExample="false"
+           enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+      <generatedKey column="car_type" sqlStatement="MySql" identity="true"/>
+    </table>
+    <table schema="" tableName="t_vip_product_rule_item" domainObjectName="TVipProductRuleItem"
+           enableCountByExample="false" enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+      <generatedKey column="rule_item_id" sqlStatement="MySql" identity="true"/>
+    </table>
+    <table schema="" tableName="t_vip_p2city" domainObjectName="TVipP2city" enableCountByExample="false"
+           enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+      <generatedKey column="city_id" sqlStatement="MySql" identity="true"/>
+    </table>
+    <table schema="" tableName="t_coupon_log" domainObjectName="TCouponLog" enableCountByExample="false"
+           enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+      <generatedKey column="log_id" sqlStatement="MySql" identity="true"/>
+    </table>
+    <table schema="" tableName="t_vip_product_rule" domainObjectName="TVipProductRule" enableCountByExample="false"
+           enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+      <generatedKey column="rule_id" sqlStatement="MySql" identity="true"/>
+    </table>
+    <table schema="" tableName="t_vip_product_match_rule" domainObjectName="TVipProductMatchRule"
+           enableCountByExample="false" enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+      <generatedKey column="match_rule_id" sqlStatement="MySql" identity="true"/>
+    </table>
+    <table schema="" tableName="t_vip_s_product" domainObjectName="TVipSProduct" enableCountByExample="false"
+           enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+      <generatedKey column="s_prod_id" sqlStatement="MySql" identity="true"/>
+    </table>
+    <table schema="" tableName="t_app_versions" domainObjectName="TAppVersions" enableCountByExample="false"
+           enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+      <generatedKey column="up_vid" sqlStatement="MySql" identity="true"/>
+    </table>
+    <table schema="" tableName="t_airport" domainObjectName="TAirport" enableCountByExample="false"
+           enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+      <generatedKey column="aid" sqlStatement="MySql" identity="true"/>
+    </table>
+    <table schema="" tableName="t_car_city_rel" domainObjectName="TCarCityRel" enableCountByExample="false"
+           enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+    </table>
+    <table schema="" tableName="t_vip_index" domainObjectName="TVipIndex" enableCountByExample="false"
+           enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+      <generatedKey column="idx_id" sqlStatement="MySql" identity="true"/>
+    </table>
+    <table schema="" tableName="t_vip_product_rule_log" domainObjectName="TVipProductRuleLog"
+           enableCountByExample="false" enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+      <generatedKey column="log_id" sqlStatement="MySql" identity="true"/>
+    </table>
+    <table schema="" tableName="t_vip_car_price" domainObjectName="TVipCarPrice" enableCountByExample="false"
+           enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+      <generatedKey column="car_price_id" sqlStatement="MySql" identity="true"/>
+    </table>
+    <table schema="" tableName="t_vip_product" domainObjectName="TVipProduct" enableCountByExample="false"
+           enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+      <generatedKey column="prod_id" sqlStatement="MySql" identity="true"/>
+    </table>
+    <table schema="" tableName="t_vip_product_match_rule_log" domainObjectName="TVipProductMatchRuleLog"
+           enableCountByExample="false" enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+      <generatedKey column="log_id" sqlStatement="MySql" identity="true"/>
+    </table>
+    <table schema="" tableName="t_taxi_complain" domainObjectName="TTaxiComplain" enableCountByExample="false"
+           enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+      <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+    </table>
+    <table schema="" tableName="t_coupon" domainObjectName="TCoupon" enableCountByExample="false"
+           enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+      <generatedKey column="coupon_id" sqlStatement="MySql" identity="true"/>
+    </table>
+    <table schema="" tableName="t_customer" domainObjectName="TCustomer" enableCountByExample="false"
+           enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+      <generatedKey column="cid" sqlStatement="MySql" identity="true"/>
+    </table>
+    <table schema="" tableName="t_lessor" domainObjectName="TLessor" enableCountByExample="false"
+           enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+      <generatedKey column="lessor_id" sqlStatement="MySql" identity="true"/>
+    </table>
+    <table schema="" tableName="t_airport_price" domainObjectName="TAirportPrice" enableCountByExample="false"
+           enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+    </table>
+    <table schema="" tableName="t_comments" domainObjectName="TComments" enableCountByExample="false"
+           enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+      <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+    </table>
+    <table schema="" tableName="rule_engine_customer" domainObjectName="RuleEngineCustomer" enableCountByExample="false"
+           enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+      <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+    </table>
+    <table schema="" tableName="t_vip_car" domainObjectName="TVipCar" enableCountByExample="false"
+           enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+      <generatedKey column="car_id" sqlStatement="MySql" identity="true"/>
+    </table>
+    <table schema="" tableName="t_vip_s_product_exclude" domainObjectName="TVipSProductExclude"
+           enableCountByExample="false" enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+    </table>
+    <table schema="" tableName="t_config_in_db" domainObjectName="TConfigInDb" enableCountByExample="false"
+           enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+    </table>
+    <table schema="" tableName="t_coupon_type" domainObjectName="TCouponType" enableCountByExample="false"
+           enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+      <generatedKey column="ctid" sqlStatement="MySql" identity="true"/>
+    </table>
+    <table schema="" tableName="t_coupon_type_attr" domainObjectName="TCouponTypeAttr" enableCountByExample="false"
+           enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+    </table>
+    <table schema="" tableName="t_order_taxi_delivery" domainObjectName="TOrderTaxiDelivery"
+           enableCountByExample="false" enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+      <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+    </table>
+    <table schema="" tableName="t_vip_product_exclude" domainObjectName="TVipProductExclude"
+           enableCountByExample="false" enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+    </table>
+    <table schema="" tableName="t_comet_message_log" domainObjectName="TCometMessageLog" enableCountByExample="false"
+           enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+      <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+    </table>
+    <table schema="" tableName="t_order_vip_driver" domainObjectName="TOrderVipDriver" enableCountByExample="false"
+           enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+      <generatedKey column="order_id" sqlStatement="MySql" identity="true"/>
+    </table>
+    <table schema="" tableName="t_price_rel" domainObjectName="TPriceRel" enableCountByExample="false"
+           enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+    </table>
+    <table schema="" tableName="t_order_taxi_driver" domainObjectName="TOrderTaxiDriver" enableCountByExample="false"
+           enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+      <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+    </table>
+    <table schema="" tableName="t_base_price" domainObjectName="TBasePrice" enableCountByExample="false"
+           enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+      <generatedKey column="bp_id" sqlStatement="MySql" identity="true"/>
+    </table>
+    <table schema="" tableName="rule_engine_config" domainObjectName="RuleEngineConfig" enableCountByExample="false"
+           enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+      <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+    </table>
+    <table schema="" tableName="t_vip_product_send_rule_item" domainObjectName="TVipProductSendRuleItem"
+           enableCountByExample="false" enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+      <generatedKey column="rule_item_id" sqlStatement="MySql" identity="true"/>
+    </table>
+    <table schema="" tableName="t_comet_message" domainObjectName="TCometMessage" enableCountByExample="false"
+           enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+      <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+    </table>
+    <table schema="" tableName="t_laboring" domainObjectName="TLaboring" enableCountByExample="false"
+           enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+      <generatedKey column="laboring_id" sqlStatement="MySql" identity="true"/>
+    </table>
+    <table schema="" tableName="rule_engine_driver" domainObjectName="RuleEngineDriver" enableCountByExample="false"
+           enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+      <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+    </table>
+    <table schema="" tableName="t_city" domainObjectName="TCity" enableCountByExample="false"
+           enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+      <generatedKey column="city_id" sqlStatement="MySql" identity="true"/>
+    </table>
+    <table schema="" tableName="t_vip_product_send_rule_log" domainObjectName="TVipProductSendRuleLog"
+           enableCountByExample="false" enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+      <generatedKey column="log_id" sqlStatement="MySql" identity="true"/>
+    </table>
+    <table schema="" tableName="t_customer_session" domainObjectName="TCustomerSession" enableCountByExample="false"
+           enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+      <generatedKey column="sid" sqlStatement="MySql" identity="true"/>
+    </table>
+    <table schema="" tableName="t_car_type" domainObjectName="TCarType" enableCountByExample="false"
+           enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+      <generatedKey column="car_type" sqlStatement="MySql" identity="true"/>
+    </table>
+    <table schema="" tableName="t_vip_driver_session" domainObjectName="TVipDriverSession" enableCountByExample="false"
+           enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+      <generatedKey column="sid" sqlStatement="MySql" identity="true"/>
+    </table>
+    <table schema="" tableName="t_vip_sp2cp" domainObjectName="TVipSp2cp" enableCountByExample="false"
+           enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+      <generatedKey column="rel_id" sqlStatement="MySql" identity="true"/>
+    </table>
+    <table schema="" tableName="t_country" domainObjectName="TCountry" enableCountByExample="false"
+           enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+      <generatedKey column="country_id" sqlStatement="MySql" identity="true"/>
+    </table>
+    <table schema="" tableName="t_vip_driver" domainObjectName="TVipDriver" enableCountByExample="false"
+           enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+      <generatedKey column="driver_id" sqlStatement="MySql" identity="true"/>
+    </table>
+    <table schema="" tableName="user" domainObjectName="User" enableCountByExample="false" enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+      <generatedKey column="uid" sqlStatement="MySql" identity="true"/>
+    </table>
+    <table schema="" tableName="t_vip_product_match_rule_item" domainObjectName="TVipProductMatchRuleItem"
+           enableCountByExample="false" enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+      <generatedKey column="rule_item_id" sqlStatement="MySql" identity="true"/>
+    </table>
+
+    <table schema="" tableName="t_taxi_driver_session" domainObjectName="TTaxiDriverSession"
+           enableCountByExample="false" enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+      <generatedKey column="sid" sqlStatement="MySql" identity="true"/>
+    </table>
+
+
+    <table schema="" tableName="t_order_channel_log" domainObjectName="TOrderChannelLog" enableCountByExample="false"
+           enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+      <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+    </table>
+
+    <table schema="" tableName="t_vip_order_monitor" domainObjectName="VipOrderMonitor" enableCountByExample="false"
+           enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+      <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+    </table>
+
+    <table schema="" tableName="t_paydetail" domainObjectName="Paydetail" enableCountByExample="false"
+           enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+      <generatedKey column="pay_id" sqlStatement="MySql" identity="true"/>
+    </table>
+
+
+    <table schema="" tableName="t_config_version" domainObjectName="TConfigVersion" enableCountByExample="false"
+           enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+      <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+    </table>
+
+    <table schema="" tableName="t_customer_identity" domainObjectName="CustomerIdentity" enableCountByExample="false"
+           enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+      <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+    </table>
+
+    <table schema="" tableName="t_customer_recommend" domainObjectName="CustomerRecommend" enableCountByExample="false"
+           enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+      <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+    </table>
+
+    <table schema="" tableName="t_customer_recommend_present" domainObjectName="CustomerRecommendPresent"
+           enableCountByExample="false" enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+      <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+    </table>
+
+    <table schema="" tableName="t_channel_identity" domainObjectName="ChannelIdentity" enableCountByExample="false"
+           enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+      <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+    </table>
+    <table schema="" tableName="t_channel_recommend_present" domainObjectName="ChannelRecommendPresent"
+           enableCountByExample="false" enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+      <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+    </table>
+  </context>
+</generatorConfiguration>  
