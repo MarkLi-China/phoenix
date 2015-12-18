@@ -3,11 +3,11 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.domain</groupId>
-  <artifactId>java-learning</artifactId>
+  <artifactId>phoenix</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>war</packaging>
 
-  <name>java-learning</name>
+  <name>phoenix</name>
   <url>http://maven.apache.org</url>
 
   <properties>
@@ -188,7 +188,7 @@
 
 
   <build>
-    <finalName>java-learning</finalName>
+    <finalName>phoenix</finalName>
     <resources>
       <resource>
         <directory>src/main/conf/${env}</directory>
