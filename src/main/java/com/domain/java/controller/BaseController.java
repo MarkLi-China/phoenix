@@ -1,6 +1,6 @@
 package com.domain.java.controller;
 
-import com.dhf.boss.common.controller.AbstractController;
+import com.weyao.boss.common.controller.AbstractController;
 
 public class BaseController extends AbstractController {
 

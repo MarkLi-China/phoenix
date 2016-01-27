@@ -1,7 +1,7 @@
 package com.domain.java.controller;
 
-import com.dhf.common.IdEncoder;
-import com.dhf.common.JsonHelper2;
+import com.weyao.common.IdEncoder;
+import com.weyao.common.JsonHelper2;
 import org.apache.commons.collections.CollectionUtils;
 import sun.reflect.Reflection;
 

@@ -11,7 +11,7 @@
 
   <tag>
     <name>page</name>
-    <tag-class>com.dhf.boss.common.taglib.PageTag</tag-class>
+    <tag-class>com.weyao.boss.common.taglib.PageTag</tag-class>
     <body-content>JSP</body-content>
     <attribute>
       <name>pageBean</name>
@@ -32,7 +32,7 @@
 
   <tag>
     <name>xssFilterOut</name>
-    <tag-class>com.dhf.api.taglib.XssFilterOutTag</tag-class>
+    <tag-class>com.weyao.api.taglib.XssFilterOutTag</tag-class>
     <body-content>JSP</body-content>
     <attribute>
       <name>escapeHtml</name>

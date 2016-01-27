@@ -29,7 +29,7 @@
     <property name="defaultAutoCommit" value="${dbcp.defaultAutoCommit}"/>
   </bean>
 
-  <bean id="sqlSessionFactory" class="com.dhf.boss.common.spring.ExtSqlSessionFactoryBean">
+  <bean id="sqlSessionFactory" class="com.weyao.boss.common.spring.ExtSqlSessionFactoryBean">
     <property name="dataSource" ref="dataSource"/>
     <property name="mapperLocations" value="classpath*:com/domain/java/dao/base/*/*.xml"/>
     <property name="extPackages" value="com.domain.java.dao.base.ext"/>
@@ -58,7 +58,7 @@
     <property name="defaultAutoCommit" value="${dbcp.defaultAutoCommit}"/>
   </bean>
 
-  <bean id="read_sqlSessionFactory" class="com.dhf.boss.common.spring.ExtSqlSessionFactoryBean">
+  <bean id="read_sqlSessionFactory" class="com.weyao.boss.common.spring.ExtSqlSessionFactoryBean">
     <property name="dataSource" ref="read_dataSource"/>
     <property name="mapperLocations" value="classpath*:com/domain/java/dao/base/*/*.xml"/>
     <property name="extPackages" value="com.domain.java.dao.base.ext"/>
@@ -69,7 +69,7 @@
   </bean>
   <tx:annotation-driven transaction-manager="read_transactionManager"/>
 
-  <bean class="com.dhf.boss.common.spring.ProxyMapperScannerConfigurer">
+  <bean class="com.weyao.boss.common.spring.ProxyMapperScannerConfigurer">
     <property name="basePackage" value="com.domain.java.dao.base.ext"/>
     <property name="writeSqlSessionFactoryBeanName" value="sqlSessionFactory"/>
     <property name="readSqlSessionFactoryBeanName" value="read_sqlSessionFactory"/>

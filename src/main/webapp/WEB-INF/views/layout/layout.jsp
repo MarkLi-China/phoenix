@@ -23,6 +23,12 @@
   <link rel="stylesheet" href="${root}/neon/css/custom.css">
   <link rel="stylesheet" href="${root}/neon/css/skins/white.css">
 
+  <link rel="stylesheet" href="${root}/neon/js/jvectormap/jquery-jvectormap-1.2.2.css">
+  <link rel="stylesheet" href="${root}/neon/js/rickshaw/rickshaw.min.css">
+  <link rel="stylesheet" href="${root}/neon/js/zurb-responsive-tables/responsive-tables.css">
+  <!-- syntaxhighlighter -->
+  <link type="text/css" rel="stylesheet" href="${root}/assets/syntaxhighlighter/css/shCoreEclipse.css"/>
+
   <script type="text/javascript" src="${root}/neon/js/jquery-1.11.0.min.js"></script>
 
   <decorator:head/>
@@ -34,7 +40,7 @@
     <div class="navbar-inner">
       <!-- logo -->
       <div class="navbar-brand">
-        <a href="${root}/index.html">
+        <a href="${root}/default/index.html">
           <img src="${root}/neon/images/logo-light@2x.png" width="88" alt=""/>
         </a>
       </div>
@@ -83,6 +89,11 @@
             <li>
               <a href="${root}/default/slider.html">
                 <span>Slider</span>
+              </a>
+            </li>
+            <li>
+              <a href="${root}/default/zoom.html">
+                <span>Zoom</span>
               </a>
             </li>
           </ul>
@@ -333,10 +344,6 @@
   </div>
 </div>
 
-<link rel="stylesheet" href="${root}/neon/js/jvectormap/jquery-jvectormap-1.2.2.css">
-<link rel="stylesheet" href="${root}/neon/js/rickshaw/rickshaw.min.css">
-<link rel="stylesheet" href="${root}/neon/js/zurb-responsive-tables/responsive-tables.css">
-
 <!-- Bottom Scripts -->
 <script type="text/javascript" src="${root}/neon/js/gsap/main-gsap.js"></script>
 <script type="text/javascript" src="${root}/neon/js/jquery-ui/js/jquery-ui-1.10.3.minimal.min.js"></script>
@@ -357,7 +364,6 @@
 <script type="text/javascript" src="${root}/neon/js/neon-demo.js"></script>
 
 <!-- syntaxhighlighter -->
-<link type="text/css" rel="stylesheet" href="${root}/assets/syntaxhighlighter/css/shCoreEclipse.css"/>
 <script type="text/javascript" src="${root}/assets/syntaxhighlighter/js/shCore.js"></script>
 <script type="text/javascript" src="${root}/assets/syntaxhighlighter/js/shBrushXml.js"></script>
 <script type="text/javascript">SyntaxHighlighter.all();</script>

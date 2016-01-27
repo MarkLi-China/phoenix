@@ -23,13 +23,13 @@
   <repositories>
     <repository>
       <id>releases</id>
-      <name>DHF Central Code Repository</name>
-      <url>http://10.128.8.31:8081/nexus/content/groups/public/</url>
+      <name>Central Code Repository</name>
+      <url>http://m2.internal.weyao.com/nexus/content/groups/public/</url>
     </repository>
     <repository>
       <id>snapshots</id>
-      <name>DHF snapshots Code Repository</name>
-      <url>http://10.128.8.31:8081/nexus/content/groups/public-snapshots/</url>
+      <name>snapshots Code Repository</name>
+      <url>http://m2.internal.weyao.com/nexus/content/groups/public-snapshots/</url>
       <snapshots>
         <enabled>true</enabled>
         <updatePolicy>always</updatePolicy>
@@ -41,12 +41,12 @@
   <distributionManagement>
     <repository>
       <id>releases</id>
-      <url>http://10.128.8.31:8081/nexus/content/repositories/com.dhf.repository/</url>
+      <url>http://m2.internal.weyao.com/nexus/content/repositories/com.weyao.repository/</url>
     </repository>
     <snapshotRepository>
       <id>snapshots</id>
       <name>Internal Snapshots</name>
-      <url>http://10.128.8.31:8081/nexus/content/repositories/com.dhf.repositories.snapshots/</url>
+      <url>http://m2.internal.weyao.com/nexus/content/repositories/com.weyao.repositories.snapshots/</url>
     </snapshotRepository>
   </distributionManagement>
   <!-- remote maven repository end -->
@@ -167,7 +167,7 @@
     </dependency>
 
     <!-- 本地仓库 -->
-    <dependency>
+    <!--<dependency>
       <groupId>com.dhf</groupId>
       <artifactId>api-framework</artifactId>
       <version>0.0.8-RELEASE</version>
@@ -181,6 +181,21 @@
       <groupId>com.dhf</groupId>
       <artifactId>boss-common</artifactId>
       <version>0.0.5-SNAPSHOT</version>
+    </dependency>-->
+    <dependency>
+      <groupId>com.weyao</groupId>
+      <artifactId>api-framework</artifactId>
+      <version>0.0.1-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+      <groupId>com.weyao</groupId>
+      <artifactId>common</artifactId>
+      <version>0.0.1-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+      <groupId>com.weyao</groupId>
+      <artifactId>boss-common</artifactId>
+      <version>0.0.1-SNAPSHOT</version>
     </dependency>
     <!-- 本地仓库 -->
 
