@@ -1,7 +1,7 @@
 @echo off
-echo è¯·è¾“å…¥ç¼–è¯‘é…ç½®é€‰é¡¹ï¼šdev, prd, testä¸­çš„ä¸€é¡¹
+echo ÇëÊäÈë±àÒëÅäÖÃÑ¡Ïî£ºdev, prd, testÖĞµÄÒ»Ïî
 set /p env=>nul 
-echo é…ç½®ç¯å¢ƒï¼š%env%
+echo ÅäÖÃ»·¾³£º%env%
 cd %~dp0
 call mvn clean package -Denv=%env%
 pause
