@@ -11,9 +11,9 @@ import org.junit.Test;
 public class IDCardUtilsTest {
 
     @Test
-    public void conver15CardTo18Test() {
+    public void convert15CardTo18Test() {
 
-        String id18 = IDCardUtils.conver15CardTo18("123456789876543");
+        String id18 = IDCardUtils.convert15CardTo18("123456789876543");
         System.out.println("id18 : " + id18);
     }
 

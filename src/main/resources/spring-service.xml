@@ -2,15 +2,15 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
-       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:aop="http://www.springframework.org/schema/aop"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
        http://www.springframework.org/schema/context
        http://www.springframework.org/schema/context/spring-context-3.0.xsd
-       http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+       http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 
   <context:annotation-config/>
-  <context:component-scan base-package="com.domain.java.service"/>
+  <context:component-scan base-package="com.domain.java.service,com.domain.java.interceptor"/>
 
   <!-- 拦截器 -->
   <mvc:interceptors>
@@ -26,4 +26,39 @@
       </bean>
     </mvc:interceptor>
   </mvc:interceptors>
+
+  <!-- aop xml配置 -->
+  <aop:config>
+    <aop:aspect id="loggingXMLAdvice" ref="loggingXMLAdvice">
+      <aop:pointcut id="loginPointcut" expression="execution(* com.domain.java.service.impl.LoginServiceImpl.login(..))"/>
+      <aop:around method="aroundAdvice" pointcut-ref="loginPointcut"/>
+      <aop:after-returning method="returnAdvice" returning="returnObj" pointcut-ref="loginPointcut" />
+      <aop:after-throwing method="throwingAdvice" throwing="ex" pointcut-ref="loginPointcut" />
+    </aop:aspect>
+  </aop:config>
+
+  <!-- aop 纯注解 -->
+  <aop:aspectj-autoproxy />
+
+  <!-- aop 接口方式 -->
+  <bean id="pointcutBean" class="org.springframework.aop.support.NameMatchMethodPointcut">
+    <property name="mappedName" value="operate*"/>
+  </bean>
+  <bean id="aspectBean" class="org.springframework.aop.support.DefaultPointcutAdvisor">
+    <property name="advice" ref="loggingInterceptor"/>
+    <property name="pointcut" ref="pointcutBean"/>
+  </bean>
+  <bean id="loginProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+    <property name="target" ref="loginService"/>
+    <property name="interceptorNames">
+      <list>
+        <value>aspectBean</value>
+      </list>
+    </property>
+  </bean>
+  <!-- 此种方式 aop:pointcut的类型需改为[org.aopalliance.aop.Advice],需要去掉aspectj相关的jar包引用 -->
+  <!--<aop:config>
+    <aop:pointcut id="loggingInterceptor" expression="execution(* com.domain.java.service.impl.LoginServiceImpl.operate(..))" />
+    <aop:advisor advice-ref="loggingInterceptor" pointcut-ref="loggingInterceptor"/>
+  </aop:config>-->
 </beans>

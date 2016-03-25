@@ -17,6 +17,9 @@
     <!-- 编译时的编码 -->
     <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
     <env>dev</env>
+
+    <spring.version>3.2.10.RELEASE</spring.version>
+    <aspectj.version>1.8.9</aspectj.version>
   </properties>
 
   <!-- remote maven repository -->
@@ -66,27 +69,27 @@
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-context</artifactId>
-      <version>3.2.10.RELEASE</version>
+      <version>${spring.version}</version>
     </dependency>
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-tx</artifactId>
-      <version>3.2.10.RELEASE</version>
+      <version>${spring.version}</version>
     </dependency>
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-webmvc</artifactId>
-      <version>3.2.10.RELEASE</version>
+      <version>${spring.version}</version>
     </dependency>
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-jdbc</artifactId>
-      <version>3.2.10.RELEASE</version>
+      <version>${spring.version}</version>
     </dependency>
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-test</artifactId>
-      <version>3.2.10.RELEASE</version>
+      <version>${spring.version}</version>
     </dependency>
     <dependency>
       <groupId>commons-collections</groupId>
@@ -165,23 +168,25 @@
       <artifactId>jackson-mapper-asl</artifactId>
       <version>1.9.4</version>
     </dependency>
+    <!-- aop aspectj -->
+    <dependency>
+      <groupId>org.aspectj</groupId>
+      <artifactId>aspectjrt</artifactId>
+      <version>${aspectj.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.aspectj</groupId>
+      <artifactId>aspectjweaver</artifactId>
+      <version>${aspectj.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>cglib</groupId>
+      <artifactId>cglib</artifactId>
+      <version>3.2.1</version>
+    </dependency>
+    <!-- aop aspectj -->
 
     <!-- 本地仓库 -->
-    <!--<dependency>
-      <groupId>com.dhf</groupId>
-      <artifactId>api-framework</artifactId>
-      <version>0.0.8-RELEASE</version>
-    </dependency>
-    <dependency>
-      <groupId>com.dhf</groupId>
-      <artifactId>common</artifactId>
-      <version>0.1.1-RELEASE</version>
-    </dependency>
-    <dependency>
-      <groupId>com.dhf</groupId>
-      <artifactId>boss-common</artifactId>
-      <version>0.0.5-SNAPSHOT</version>
-    </dependency>-->
     <dependency>
       <groupId>com.weyao</groupId>
       <artifactId>api-framework</artifactId>

@@ -9,6 +9,17 @@
 
   <!-- 对包中的所有类进行扫描，以完成Bean创建和自动依赖注入的功能 -->
   <context:component-scan base-package="com.domain.java.controller"/>
+  <!-- controller中使用properties的配置 -->
+  <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+    <property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE"/>
+    <property name="locations">
+      <list>
+        <!-- 标准配置 -->
+        <value>classpath*:/application.properties</value>
+      </list>
+    </property>
+  </bean>
+  <!-- controller中使用properties的配置 -->
 
   <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
     <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
