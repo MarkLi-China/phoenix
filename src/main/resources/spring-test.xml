@@ -15,6 +15,7 @@
   </bean>
 
   <import resource="spring-service.xml"/>
+  <import resource="spring-aop.xml"/>
   <!--<import resource="spring-mybatis-base.xml"/>-->
 
 </beans>

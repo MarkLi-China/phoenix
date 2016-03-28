@@ -13,4 +13,8 @@ public interface LoginService {
     void logout();
 
     void operate();
+
+    void operate(Integer operatorId);
+
+    Object handle(String... args);
 }

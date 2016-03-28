@@ -30,10 +30,10 @@
   <!-- aop xml配置 -->
   <aop:config>
     <aop:aspect id="loggingXMLAdvice" ref="loggingXMLAdvice">
-      <aop:pointcut id="loginPointcut" expression="execution(* com.domain.java.service.impl.LoginServiceImpl.login(..))"/>
-      <aop:around method="aroundAdvice" pointcut-ref="loginPointcut"/>
-      <aop:after-returning method="returnAdvice" returning="returnObj" pointcut-ref="loginPointcut" />
-      <aop:after-throwing method="throwingAdvice" throwing="ex" pointcut-ref="loginPointcut" />
+      <aop:pointcut id="loginPointcutXML" expression="execution(* com.domain.java.service.impl.LoginServiceImpl.login(..))"/>
+      <aop:around method="aroundAdvice" pointcut-ref="loginPointcutXML"/>
+      <aop:after-returning method="returnAdvice" returning="returnObj" pointcut-ref="loginPointcutXML" />
+      <aop:after-throwing method="throwingAdvice" throwing="ex" pointcut-ref="loginPointcutXML" />
     </aop:aspect>
   </aop:config>
 
@@ -41,22 +41,22 @@
   <aop:aspectj-autoproxy />
 
   <!-- aop 接口方式 -->
-  <bean id="pointcutBean" class="org.springframework.aop.support.NameMatchMethodPointcut">
-    <property name="mappedName" value="operate*"/>
+  <bean id="loginPointcutBean" class="org.springframework.aop.support.NameMatchMethodPointcut">
+    <property name="mappedName" value="operate"/>
   </bean>
-  <bean id="aspectBean" class="org.springframework.aop.support.DefaultPointcutAdvisor">
+  <bean id="loginAdvisorBean" class="org.springframework.aop.support.DefaultPointcutAdvisor">
     <property name="advice" ref="loggingInterceptor"/>
-    <property name="pointcut" ref="pointcutBean"/>
+    <property name="pointcut" ref="loginPointcutBean"/>
   </bean>
   <bean id="loginProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
     <property name="target" ref="loginService"/>
     <property name="interceptorNames">
       <list>
-        <value>aspectBean</value>
+        <value>loginAdvisorBean</value>
       </list>
     </property>
   </bean>
-  <!-- 此种方式 aop:pointcut的类型需改为[org.aopalliance.aop.Advice],需要去掉aspectj相关的jar包引用 -->
+  <!-- 报错：aop:pointcut的类型需为[org.aopalliance.aop.Advice],与aspectj相关配置冲突,单独放到spring-aop.xml中测试 -->
   <!--<aop:config>
     <aop:pointcut id="loggingInterceptor" expression="execution(* com.domain.java.service.impl.LoginServiceImpl.operate(..))" />
     <aop:advisor advice-ref="loggingInterceptor" pointcut-ref="loggingInterceptor"/>

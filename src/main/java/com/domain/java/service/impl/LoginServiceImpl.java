@@ -4,6 +4,8 @@ import com.domain.java.service.LoginService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
+import java.util.Arrays;
+
 /**
  * com.domain.java.service.impl
  * @author Mark Li
@@ -35,5 +37,19 @@ public class LoginServiceImpl implements LoginService {
     public void operate() {
 
         System.out.println("operate......");
+    }
+
+    @Override
+    public void operate(Integer operatorId) {
+
+        System.out.println(operatorId + " operate......");
+    }
+
+    @Override
+    public Object handle(String... args) {
+
+        System.out.println("LoginServiceImpl.handle");
+        System.out.println("args = [" + Arrays.toString(args) + "]");
+        return null;
     }
 }

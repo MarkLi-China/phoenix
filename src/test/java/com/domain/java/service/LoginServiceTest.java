@@ -17,17 +17,30 @@ public class LoginServiceTest extends BaseTest {
 
     @Test
     public void testLogin() {
+
         loginService.login("xxx", "yyy", "zzz");
 //        loginService.login("xxx", "yyy", "");
     }
 
     @Test
     public void testLogout() {
+
         loginService.logout();
     }
 
     @Test
     public void testOperate() {
+
         loginService.operate();
+        loginService.operate(1);
+    }
+
+    @Test
+    public void testHandle() {
+
+        loginService.handle();
+        loginService.handle("a");
+        loginService.handle("a", "b");
+        loginService.handle("a", "b", "c");
     }
 }

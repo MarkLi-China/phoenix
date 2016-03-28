@@ -32,10 +32,10 @@ public class LoggingAspectjAdvice {
     @Before(value = "aspectjMethod()")
     public void beforeAdvice(JoinPoint point) {
 
-        System.out.println("-----beforeAdvice().invoke-----");
+        System.out.println("-----LoggingAspectjAdvice.beforeAdvice().invoke-----");
         System.out.println("此处意在执行核心业务逻辑前，做一些安全性的判断等等");
         System.out.println("可通过point来获取所需要的内容");
-        System.out.println("-----End of beforeAdvice()------");
+        System.out.println("-----End of LoggingAspectjAdvice.beforeAdvice()------");
     }
 
     /**
@@ -45,10 +45,10 @@ public class LoggingAspectjAdvice {
     @After(value = "aspectjMethod()")
     public void afterAdvice(JoinPoint point) {
 
-        System.out.println("-----afterAdvice().invoke-----");
+        System.out.println("-----LoggingAspectjAdvice.afterAdvice().invoke-----");
         System.out.println(" 此处意在执行核心业务逻辑之后，做一些日志记录操作等等");
         System.out.println(" 可通过point来获取所需要的内容");
-        System.out.println("-----End of afterAdvice()------");
+        System.out.println("-----End of LoggingAspectjAdvice.afterAdvice()------");
     }
 
     /**
@@ -62,14 +62,14 @@ public class LoggingAspectjAdvice {
     @Around(value = "aspectjMethod()")
     public Object aroundAdvice(ProceedingJoinPoint point) throws Throwable {
 
-        System.out.println("-----aroundAdvice().invoke-----");
+        System.out.println("-----LoggingAspectjAdvice.aroundAdvice().invoke-----");
         System.out.println(" 此处可以做类似于Before Advice的事情");
 
         //调用核心逻辑
         Object retVal = point.proceed();
 
         System.out.println(" 此处可以做类似于After Advice的事情");
-        System.out.println("-----End of aroundAdvice()------");
+        System.out.println("-----End of LoggingAspectjAdvice.aroundAdvice()------");
         return retVal;
     }
 
@@ -81,11 +81,11 @@ public class LoggingAspectjAdvice {
     @AfterReturning(value = "aspectjMethod()", returning = "returnObj")
     public void returnAdvice(JoinPoint point, Object returnObj) {
 
-        System.out.println("-----returnAdvice().invoke-----");
+        System.out.println("-----LoggingAspectjAdvice.returnAdvice().invoke-----");
         System.out.println("Return Value: " + returnObj);
         System.out.println(" 此处可以对返回值做进一步处理");
         System.out.println(" 可通过point来获取所需要的内容");
-        System.out.println("-----End of returnAdvice()------");
+        System.out.println("-----End of LoggingAspectjAdvice.returnAdvice()------");
     }
 
     /**
@@ -96,10 +96,10 @@ public class LoggingAspectjAdvice {
     @AfterThrowing(value = "aspectjMethod()", throwing = "ex")
     public void throwingAdvice(JoinPoint point, Throwable ex) {
 
-        System.out.println("-----throwingAdvice().invoke-----");
+        System.out.println("-----LoggingAspectjAdvice.throwingAdvice().invoke-----");
         System.out.println(" 错误信息：" + ex.getMessage());
         System.out.println(" 此处意在执行核心业务逻辑出错时，捕获异常，并可做一些日志记录操作等等");
         System.out.println(" 可通过point来获取所需要的内容");
-        System.out.println("-----End of throwingAdvice()------");
+        System.out.println("-----End of LoggingAspectjAdvice.throwingAdvice()------");
     }
 }

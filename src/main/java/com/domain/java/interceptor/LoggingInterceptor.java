@@ -18,6 +18,7 @@ public class LoggingInterceptor implements MethodInterceptor {
     @Override
     public Object invoke(MethodInvocation methodInvocation) throws Throwable {
 
+        System.out.println("-----LoggingInterceptor.invoke()-----");
         Object ret;
         try {
             System.out.println(" 此处可以做类似于Before Advice的事情");
@@ -33,6 +34,7 @@ public class LoggingInterceptor implements MethodInterceptor {
             throw throwable;
         }
         System.out.println(" 此处可以做类似于After Returning的事情？？");
+        System.out.println("-----End of LoggingInterceptor.invoke()------");
 
         return ret;
     }
