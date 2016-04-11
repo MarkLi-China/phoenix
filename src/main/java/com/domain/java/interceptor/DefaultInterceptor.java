@@ -32,6 +32,11 @@ public class DefaultInterceptor extends HandlerInterceptorAdapter {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 
+        String contextPath = request.getContextPath();
+        System.out.println("contextPath = " + contextPath);
+        String servletPath = request.getServletPath();
+        System.out.println("servletPath = " + servletPath);
+
         requestStartTime = System.currentTimeMillis();
         logger.debug("default interceptor pre handle, requestStartTime = " + requestStartTime);
         return super.preHandle(request, response, handler);
@@ -42,7 +47,7 @@ public class DefaultInterceptor extends HandlerInterceptorAdapter {
 
         requestEndTime = System.currentTimeMillis();
         timeSpend = requestEndTime - requestStartTime;
-        logger.debug("default interceptor post handle, requestEndTime = " + requestEndTime + ", spend " + timeSpend);
+        logger.debug("default interceptor post handle, requestStartTime = " + requestStartTime + ", requestEndTime = " + requestEndTime + ", spend " + timeSpend);
     }
 
     @Override
@@ -50,7 +55,7 @@ public class DefaultInterceptor extends HandlerInterceptorAdapter {
 
         requestCompleteTime = System.currentTimeMillis();
         timeSpend = requestCompleteTime - requestStartTime;
-        logger.debug("default interceptor after completion, requestCompleteTime = " + requestCompleteTime + ", spend " + timeSpend);
+        logger.debug("default interceptor after completion, requestStartTime = " + requestStartTime + ", requestCompleteTime = " + requestCompleteTime + ", spend " + timeSpend);
     }
 
     public void setExclusionsUrl(List<String> exclusionsUrl) {

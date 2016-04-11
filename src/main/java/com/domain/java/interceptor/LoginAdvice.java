@@ -36,6 +36,7 @@ public class LoginAdvice {
 
     /**
      * 对所有controller进行切入
+     * AbstractController中自己实现了代理，切入不了
      */
     @Pointcut("execution(* com.domain.java.controller.*.*(..))")
     private void aspectjController() {
