@@ -1,6 +1,5 @@
 package com.domain.java.controller;
 
-import com.weyao.common.IdEncoder;
 import com.weyao.common.JsonHelper2;
 import org.apache.commons.collections.CollectionUtils;
 import sun.reflect.Reflection;
@@ -29,8 +28,6 @@ public class TestClass {
     public static void main(String[] args) throws Exception {
 
 //        testInteger();
-
-//        encodeOrderIds();
 
 //        testGeneric();
 
@@ -439,17 +436,6 @@ public class TestClass {
         System.out.println(cs); // [Ljava.lang.String;@33e92e10
         Cc.fun(sa, co);    // fun中的泛型T此时匹配类型Object
         System.out.println(co); // [Ljava.lang.String;@33e92e10
-    }
-
-    private static void encodeOrderIds() {
-
-        String orderIds = "51573804,51640360,51641876,51652687,51652858,51652881";
-        String[] ids = orderIds.split(",");
-
-        for (String id : ids) {
-            Long encodedId = IdEncoder.EncodeId(Long.parseLong(id));
-            System.out.println(id + "  " + encodedId);
-        }
     }
 
     public static void func1(double num) {
