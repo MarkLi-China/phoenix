@@ -1,10 +1,9 @@
 package com.domain.java.test;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
+import java.io.*;
 import java.net.Socket;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * com.domain.java.test
@@ -14,59 +13,127 @@ import java.net.Socket;
  */
 public class FtpClient2 {
 
+    static String ip;
+
+    static int port;
+
+    static FileWriter fileWriter;
+
+    static boolean write;
+
     public static void main(String[] args) throws IOException {
 
         Socket socket = new Socket("120.55.93.40", 8021);
+        InputStream is = System.in;
         PrintWriter writer = new PrintWriter(socket.getOutputStream());
-        BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+        final BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 
-        System.out.println("start: " + readStream(reader));
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
 
-        String username = "USER weyao_datafile_02\r\n";
-        writer.write(username);
-        writer.flush();
-        System.out.println("send username: " + readStream(reader));
+                String line;
+                try {
+                    while ((line = reader.readLine()) != null) {
+                        System.out.println("reader::::" + line);
+                        if (line.contains("227 Entering Passive Mode")) {
+                            String find = "\\(.*?\\)";
+                            Pattern pattern = Pattern.compile(find);
+                            Matcher matcher = pattern.matcher(line);
+                            matcher.find();
+                            String temp = matcher.group();
+                            String temp1 = temp.substring(1, temp.length() - 1);
+                            System.out.println(temp1);
+                            String[] arr = temp1.split(",");
+                            ip = arr[0] + "." + arr[1] + "." + arr[2] + "." + arr[3];
+                            port = 256 * Integer.parseInt(arr[4]) + Integer.parseInt(arr[5]);
+
+                            Socket socket1 = new Socket(ip, port);
+                            final BufferedReader reader1 = new BufferedReader(new InputStreamReader(socket1.getInputStream()));
+
+                            new Thread(new Runnable() {
+                                @Override
+                                public void run() {
+
+                                    String line;
+                                    try {
+                                        while ((line = reader1.readLine()) != null) {
+                                            System.out.println("reader1::::" + line);
+                                            if (write) {
+                                                fileWriter.write(line);
+                                                fileWriter.flush();
+                                            }
+                                        }
+                                    } catch (IOException e) {
+                                        e.printStackTrace();
+                                    }
+                                }
+                            }).start();
+                        }
+
+                        if (line.contains("150 Opening BINARY mode data connection for")) {
+                            write = true;
+                        }
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
+
+        StringBuilder sb = new StringBuilder();
+        int ch;
+        while ((ch = is.read()) != -1) {
+            if (ch == '\r') {
+                continue;
+            }
+            if (ch == '\n') {
+                String temp = sb.toString();
+                if ("over".equalsIgnoreCase(temp)) {
+                    if (socket.isConnected()) {
+                        write(writer, "QUIT\r\n");
+                    }
+                    break;
+                }
+                System.out.println("command::::" + temp.toUpperCase());
+                if (temp.contains("RETR")) {
+                    String fileName = temp.replace("RETR", "").replaceAll(" ", "");
+                    System.out.println("fileName = " + fileName);
+                    fileWriter = new FileWriter(new File(fileName));
+                }
+                write(writer, sb.toString() + "\r\n");
+                sb.delete(0, temp.length());
+            } else {
+                sb.append((char) ch);
+            }
+        }
+
+        /*String username = "USER weyao_datafile_02\r\n";
+        write(writer, username);
 
         String password = "PASS ad23SDF2ADdds32dsdf\r\n";
-        writer.write(password);
-        writer.flush();
-        System.out.println("send password: " + readStream(reader));
+        write(writer, password);
 
         String help = "HELP\r\n";
-        writer.write(help);
-        writer.flush();
-        System.out.println("help: " + readStream(reader));
+        write(writer, help);
 
         String pasv = "PASV\r\n";
-        writer.write(pasv);
-        writer.flush();
-        System.out.println("pasv: " + reader.readLine());
+        write(writer, pasv);
 
         String list = "LIST\r\n";
-        writer.write(list);
-        writer.flush();
-        System.out.println("list: " + reader.readLine());
+        write(writer, list);
 
         String quit = "QUIT\r\n";
-        writer.write(quit);
-        writer.flush();
-        System.out.println("quit: " + reader.readLine());
+        write(writer, quit);*/
 
-        writer.close();
+        /*writer.close();
         reader.close();
-        socket.close();
+        socket.close();*/
     }
 
-    private static String readStream(BufferedReader reader) throws IOException {
+    private static void write(PrintWriter writer, String command) {
 
-        String message = null;
-        String line;
-        while ((line = reader.readLine()) != null) {
-            System.out.println("line = " + line);
-            message += line;
-        }
-        System.out.println("message = " + message);
-
-        return message;
+        writer.write(command);
+        writer.flush();
     }
 }
