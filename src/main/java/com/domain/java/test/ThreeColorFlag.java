@@ -1,4 +1,4 @@
-package com.domain.java.controller;
+package com.domain.java.test;
 
 import java.util.Arrays;
 

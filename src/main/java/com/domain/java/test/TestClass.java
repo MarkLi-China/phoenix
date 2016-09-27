@@ -1,4 +1,4 @@
-package com.domain.java.controller;
+package com.domain.java.test;
 
 import com.weyao.common.JsonHelper2;
 import org.apache.commons.collections.CollectionUtils;
@@ -372,7 +372,7 @@ public class TestClass {
         System.out.println(Reflection.getCallerClass().getClassLoader());
         // DefaultController imports package 'javax.servlet' which is loaded by WebappClassLoader of Tomcat.
         // But this class's ClassLoader is AppClassLoader
-        Class<?> clazz = Class.forName("com.domain.java.controller.Demo");
+        Class<?> clazz = Class.forName("com.domain.java.test.Demo");
 //        Class<?> clazz = Class.forName("com.domain.java.controller.DefaultController");
         Object o = clazz.newInstance();
         Class[] parameterTypes = new Class[]{Map.class, int.class};
