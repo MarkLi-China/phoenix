@@ -204,6 +204,22 @@
     </dependency>
     <!-- 本地仓库 -->
 
+    <dependency>
+      <groupId>com.kenai.nbpwr</groupId>
+      <artifactId>org-jdesktop-swingx</artifactId>
+      <version>1.6-201002261215</version>
+    </dependency>
+    <dependency>
+      <groupId>fakepath</groupId>
+      <artifactId>jai-imageio-j2k</artifactId>
+      <version>1.1</version>
+    </dependency>
+    <dependency>
+      <groupId>fakepath</groupId>
+      <artifactId>jai-imageio-sun</artifactId>
+      <version>1.1</version>
+    </dependency>
+
   </dependencies>
 
 
