@@ -205,6 +205,12 @@
     <!-- 本地仓库 -->
 
     <dependency>
+      <groupId>com.domain</groupId>
+      <artifactId>common</artifactId>
+      <version>1.0-SNAPSHOT</version>
+    </dependency>
+
+    <dependency>
       <groupId>cn.easyproject</groupId>
       <artifactId>easyocr</artifactId>
       <version>3.0.4-RELEASE</version>
