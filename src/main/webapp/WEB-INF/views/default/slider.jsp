@@ -51,12 +51,12 @@
   var slider = $("#homeBanner").slider({
     id    : "homeBanner",
     imgs  : [
-      "http://i2.tietuku.com/e5859ff3e6487575.png",
-      "http://i2.tietuku.com/884e69c2eb02316b.png",
-      "http://i2.tietuku.com/f07bd295f4cdbd7a.png",
-      "http://i2.tietuku.com/89e657a08f9f13f6.png",
-      "http://i2.tietuku.com/0f8738e9cfbb9485.png",
-      "http://i2.tietuku.com/462506e0ed7b0c25.png"
+      "${root}/assets/img/slider/1.png",
+      "${root}/assets/img/slider/2.png",
+      "${root}/assets/img/slider/3.png",
+      "${root}/assets/img/slider/4.png",
+      "${root}/assets/img/slider/5.png",
+      "${root}/assets/img/slider/6.png"
     ],
     scale : 5 / 2,
     border: true,
