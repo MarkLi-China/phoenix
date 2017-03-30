@@ -23,7 +23,7 @@
   </properties>
 
   <!-- remote maven repository -->
-  <repositories>
+  <!--<repositories>
     <repository>
       <id>releases</id>
       <name>Central Code Repository</name>
@@ -51,7 +51,7 @@
       <name>Internal Snapshots</name>
       <url>http://m2.internal.weyao.com/nexus/content/repositories/com.weyao.repositories.snapshots/</url>
     </snapshotRepository>
-  </distributionManagement>
+  </distributionManagement>-->
   <!-- remote maven repository end -->
 
   <dependencies>
