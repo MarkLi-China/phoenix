@@ -199,24 +199,6 @@
     </dependency>
     <!-- quartz -->
 
-    <!-- 本地仓库 -->
-    <dependency>
-      <groupId>com.weyao</groupId>
-      <artifactId>api-framework</artifactId>
-      <version>0.0.1-SNAPSHOT</version>
-    </dependency>
-    <dependency>
-      <groupId>com.weyao</groupId>
-      <artifactId>common</artifactId>
-      <version>0.0.1-SNAPSHOT</version>
-    </dependency>
-    <dependency>
-      <groupId>com.weyao</groupId>
-      <artifactId>boss-common</artifactId>
-      <version>0.0.1-SNAPSHOT</version>
-    </dependency>
-    <!-- 本地仓库 -->
-
     <dependency>
       <groupId>com.domain</groupId>
       <artifactId>common</artifactId>

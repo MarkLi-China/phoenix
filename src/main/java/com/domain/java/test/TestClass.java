@@ -1,6 +1,6 @@
 package com.domain.java.test;
 
-import com.weyao.common.JsonHelper2;
+import com.domain.common.utils.JsonHelper2;
 import org.apache.commons.collections.CollectionUtils;
 import sun.reflect.Reflection;
 
