@@ -78,6 +78,7 @@ public class NettyClient {
             future.channel().closeFuture().sync();
         } finally {
             // 所有资源释放完成之后，清空资源，再次发起重连操作
+            // 此处只是<执行>线程，并不是定时任务，区别于executor.schedule()
             executor.execute(new Runnable() {
                 @Override
                 public void run() {
@@ -103,7 +104,37 @@ public class NettyClient {
      */
     public static void main(String[] args) throws Exception {
 
-        new NettyClient().connect(NettyConstant.PORT, NettyConstant.REMOTEIP);
+//        new NettyClient().connect(NettyConstant.PORT, NettyConstant.REMOTEIP);
+        new NettyClient().testScheduledExecutorService(System.currentTimeMillis());
+    }
+
+    private void testScheduledExecutorService(long timestamp) throws Exception {
+
+        try {
+            System.out.println("current timestamp: " + timestamp);
+            System.out.println(1);
+            throw new Exception("test exception");
+        } finally {
+            System.out.println(2);
+            executor.execute(new Runnable() {
+                @Override
+                public void run() {
+
+                    try {
+                        TimeUnit.SECONDS.sleep(1);
+                        System.out.println(Thread.currentThread().getName());
+                        try {
+                            testScheduledExecutorService(System.currentTimeMillis());
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
+        }
+
     }
 
 }

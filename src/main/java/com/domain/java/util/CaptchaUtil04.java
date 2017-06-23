@@ -26,10 +26,10 @@ public class CaptchaUtil04 {
     public static void main(String[] args) {
 
         // testEasyOCR();
-        // jpg2tif();
+        jpg2tif();
         // renameFile();
         // boxTrain();
-        printCmd();
+        // printCmd();
     }
 
     private static void testEasyOCR() {
@@ -57,11 +57,11 @@ public class CaptchaUtil04 {
     private static void jpg2tif() {
 
         try {
-            File dir = new File("D:\\Temp\\pingan\\jpg");
+            File dir = new File("D:\\Temp\\CPIC\\jpg");
             File[] files = dir.listFiles();
-            for (int i = 0; i < files.length; i++) {
-                String srcFile = "D:\\Temp\\pingan\\jpg\\" + i + ".jpg";
-                String descFile = "D:\\Temp\\pingan\\tif\\" + i + ".tif";
+            for (int i = 0; i < files.length; ) {
+                String srcFile = "D:\\Temp\\CPIC\\jpg\\" + ++i + ".jpg";
+                String descFile = "D:\\Temp\\CPIC\\tif\\" + i + ".tiff";
                 RenderedOp src = JAI.create("fileload", srcFile);
                 OutputStream os = new FileOutputStream(descFile);
                 TIFFEncodeParam param = new TIFFEncodeParam();

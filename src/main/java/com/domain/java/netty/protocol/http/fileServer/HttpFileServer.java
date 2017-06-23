@@ -34,7 +34,7 @@ import io.netty.handler.stream.ChunkedWriteHandler;
  */
 public class HttpFileServer {
 
-    private static final String DEFAULT_URL = "/src/com/domain.java/netty/";
+    private static final String DEFAULT_URL = "/phoenix/src/main/java/com/domain/java/netty/";
 
     public void run(final int port, final String url) throws Exception {
 
@@ -61,8 +61,8 @@ public class HttpFileServer {
                                     new HttpFileServerHandler(url));
                         }
                     });
-            ChannelFuture future = b.bind("192.168.1.102", port).sync();
-            System.out.println("HTTP文件目录服务器启动，网址是 : " + "http://192.168.1.102:"
+            ChannelFuture future = b.bind("10.7.253.219", port).sync();
+            System.out.println("HTTP文件目录服务器启动，网址是 : " + "http://10.7.253.219:"
                     + port + url);
             future.channel().closeFuture().sync();
         } finally {
@@ -73,7 +73,7 @@ public class HttpFileServer {
 
     public static void main(String[] args) throws Exception {
 
-        int port = 8080;
+        int port = 8988;
         if (args.length > 0) {
             try {
                 port = Integer.parseInt(args[0]);
