@@ -57,11 +57,11 @@ public class CaptchaUtil04 {
     private static void jpg2tif() {
 
         try {
-            File dir = new File("D:\\Temp\\CPIC\\jpg");
+            File dir = new File("D:\\Temp\\calc\\jpg");
             File[] files = dir.listFiles();
             for (int i = 0; i < files.length; ) {
-                String srcFile = "D:\\Temp\\CPIC\\jpg\\" + ++i + ".jpg";
-                String descFile = "D:\\Temp\\CPIC\\tif\\" + i + ".tiff";
+                String srcFile = "D:\\Temp\\calc\\jpg\\" + i++ + ".jpg";
+                String descFile = "D:\\Temp\\calc\\tif\\" + i + ".tiff";
                 RenderedOp src = JAI.create("fileload", srcFile);
                 OutputStream os = new FileOutputStream(descFile);
                 TIFFEncodeParam param = new TIFFEncodeParam();

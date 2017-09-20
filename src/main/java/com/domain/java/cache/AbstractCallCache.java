@@ -9,6 +9,7 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * com.domain.java.cache
+ * TODO 数据源变化时，及时更新，可以用redis订阅
  * @author Mark Li
  * @version 1.0.0
  * @since 2015-12-17
