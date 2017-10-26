@@ -15,7 +15,7 @@ public class HelloWorld {
 
     public static void main(String[] args) {
 
-        Integer num = 0;
+        Integer num = 1;
         String name = "Hello World";
         logger.debug("num set to {}. name set to {}.", num, name);
     }
