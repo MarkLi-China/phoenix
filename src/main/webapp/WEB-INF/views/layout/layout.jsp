@@ -13,19 +13,19 @@
   <link rel="icon" href="${root}/favicon.ico" type="image/x-icon" />
   <link rel="shortcut icon" href="${root}/favicon.ico" type="image/x-icon" />
 
-  <link rel="stylesheet" href="${root}/neon/js/jquery-ui/css/no-theme/jquery-ui-1.10.3.custom.min.css">
-  <link rel="stylesheet" href="${root}/neon/css/font-icons/entypo/css/entypo.css">
-  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic">
+  <link rel="stylesheet" href="${root}/neon/css/jquery-ui-1.10.3.custom.min.css">
+  <link rel="stylesheet" href="${root}/neon/css/entypo.css">
+  <%--<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic">--%>
   <link rel="stylesheet" href="${root}/neon/css/bootstrap.css">
   <link rel="stylesheet" href="${root}/neon/css/neon-core.css">
   <link rel="stylesheet" href="${root}/neon/css/neon-theme.css">
   <link rel="stylesheet" href="${root}/neon/css/neon-forms.css">
   <link rel="stylesheet" href="${root}/neon/css/custom.css">
-  <link rel="stylesheet" href="${root}/neon/css/skins/white.css">
+  <link rel="stylesheet" href="${root}/neon/css/white.css">
 
-  <link rel="stylesheet" href="${root}/neon/js/jvectormap/jquery-jvectormap-1.2.2.css">
-  <link rel="stylesheet" href="${root}/neon/js/rickshaw/rickshaw.min.css">
-  <link rel="stylesheet" href="${root}/neon/js/zurb-responsive-tables/responsive-tables.css">
+  <link rel="stylesheet" href="${root}/neon/css/jquery-jvectormap-1.2.2.css">
+  <link rel="stylesheet" href="${root}/neon/css/rickshaw.min.css">
+  <link rel="stylesheet" href="${root}/neon/css/responsive-tables.css">
   <!-- syntaxhighlighter -->
   <link type="text/css" rel="stylesheet" href="${root}/assets/syntaxhighlighter/css/shCoreEclipse.css"/>
 
@@ -41,7 +41,7 @@
       <!-- logo -->
       <div class="navbar-brand">
         <a href="${root}/default/index.html">
-          <img src="${root}/neon/images/logo-light@2x.png" width="88" alt=""/>
+          <img src="${root}/neon/image/logo-light@2x.png" width="88" alt=""/>
         </a>
       </div>
 
@@ -115,7 +115,7 @@
         <!-- Profile Info -->
         <li class="profile-info dropdown"><!-- add class "pull-right" if you want to place this from right -->
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            <img src="${root}/neon/images/thumb-1@2x.png" alt="" class="img-circle" width="25" />
+            <img src="${root}/neon/image/thumb-1@2x.png" alt="" class="img-circle" width="25" />
             Art Ramadani
           </a>
           <ul class="dropdown-menu">
@@ -345,21 +345,21 @@
 </div>
 
 <!-- Bottom Scripts -->
-<script type="text/javascript" src="${root}/neon/js/gsap/main-gsap.js"></script>
-<script type="text/javascript" src="${root}/neon/js/jquery-ui/js/jquery-ui-1.10.3.minimal.min.js"></script>
+<script type="text/javascript" src="${root}/neon/js/main-gsap.js"></script>
+<script type="text/javascript" src="${root}/neon/js/jquery-ui-1.10.3.minimal.min.js"></script>
 <script type="text/javascript" src="${root}/neon/js/bootstrap.js"></script>
 <script type="text/javascript" src="${root}/neon/js/joinable.js"></script>
 <script type="text/javascript" src="${root}/neon/js/resizeable.js"></script>
 <script type="text/javascript" src="${root}/neon/js/neon-api.js"></script>
-<script type="text/javascript" src="${root}/neon/js/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
-<script type="text/javascript" src="${root}/neon/js/jvectormap/jquery-jvectormap-europe-merc-en.js"></script>
+<script type="text/javascript" src="${root}/neon/js/jquery-jvectormap-1.2.2.min.js"></script>
+<script type="text/javascript" src="${root}/neon/js/jquery-jvectormap-europe-merc-en.js"></script>
 <script type="text/javascript" src="${root}/neon/js/jquery.sparkline.min.js"></script>
-<script type="text/javascript" src="${root}/neon/js/rickshaw/vendor/d3.v3.js"></script>
-<script type="text/javascript" src="${root}/neon/js/rickshaw/rickshaw.min.js"></script>
+<script type="text/javascript" src="${root}/neon/js/d3.v3.js"></script>
+<script type="text/javascript" src="${root}/neon/js/rickshaw.min.js"></script>
 <script type="text/javascript" src="${root}/neon/js/raphael-min.js"></script>
 <script type="text/javascript" src="${root}/neon/js/morris.min.js"></script>
 <script type="text/javascript" src="${root}/neon/js/toastr.js"></script>
-<script type="text/javascript" src="${root}/neon/js/zurb-responsive-tables/responsive-tables.js"></script>
+<script type="text/javascript" src="${root}/neon/js/responsive-tables.js"></script>
 <script type="text/javascript" src="${root}/neon/js/neon-custom.js"></script>
 <script type="text/javascript" src="${root}/neon/js/neon-demo.js"></script>
 
