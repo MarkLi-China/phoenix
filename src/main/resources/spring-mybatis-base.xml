@@ -11,61 +11,62 @@
 
   <context:annotation-config/>
 
-  <!-- Spring + MyBatis + DBCP -->
-  <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
-    <!-- Connection Info -->
-    <property name="driverClassName" value="${jdbc.driver}"/>
-    <property name="url" value="${jdbc.url}"/>
-    <property name="username" value="${jdbc.username}"/>
-    <property name="password" value="${jdbc.password}"/>
-
-    <!-- Connection Pooling DBCP -->
-    <property name="validationQuery" value="SELECT 1"/>
-    <property name="initialSize" value="${dbcp.initialSize}"/>
-    <property name="maxActive" value="${dbcp.maxActive}"/>
-    <property name="maxIdle" value="${dbcp.maxIdle}"/>
-    <property name="maxWait" value="${dbcp.maxWait}"/>
-    <property name="poolPreparedStatements" value="${dbcp.poolPreparedStatements}"/>
-    <property name="defaultAutoCommit" value="${dbcp.defaultAutoCommit}"/>
+  <!-- Spring + MyBatis + HikariCP -->
+  <!-- Hikari Datasource -->
+  <bean id="dataSourceHikari" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">
+    <!-- <property name="driverClassName" value="${db.driverClass}" /> --> <!-- 无需指定，除非系统无法自动识别 -->
+    <property name="jdbcUrl" value="${jdbc.url}" />
+    <property name="username" value="${jdbc.username}" />
+    <property name="password" value="${jdbc.password}" />
+    <!-- 连接只读数据库时配置为true，保证安全 -->
+    <property name="readOnly" value="false" />
+    <!-- 等待连接池分配连接的最大时长（毫秒），超过这个时长还没可用的连接则发生SQLException，缺省:30秒 -->
+    <property name="connectionTimeout" value="30000" />
+    <!-- 一个连接idle状态的最大时长（毫秒），超时则被释放（retired），缺省:10分钟 -->
+    <property name="idleTimeout" value="600000" />
+    <!-- 一个连接的生命时长（毫秒），超时而且没被使用则被释放（retired），缺省:30分钟，建议设置比数据库超时时长少30秒，参考MySQL wait_timeout参数（show variables like '%timeout%';） -->
+    <property name="maxLifetime" value="1800000" />
+    <!-- 连接池中允许的最大连接数。缺省值：10；推荐的公式：((core_count * 2) + effective_spindle_count) -->
+    <property name="maximumPoolSize" value="15" />
   </bean>
 
   <bean id="sqlSessionFactory" class="com.domain.common.framework.spring.ExtSqlSessionFactoryBean">
-    <property name="dataSource" ref="dataSource"/>
+    <property name="dataSource" ref="dataSourceHikari"/>
     <property name="mapperLocations" value="classpath*:com/domain/java/dao/base/*/*.xml"/>
     <property name="extPackages" value="com.domain.java.dao.base.ext"/>
   </bean>
 
   <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-    <property name="dataSource" ref="dataSource"/>
+    <property name="dataSource" ref="dataSourceHikari"/>
   </bean>
 
   <tx:annotation-driven transaction-manager="transactionManager"/>
 
-  <bean id="read_dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
-    <!-- Connection Info -->
-    <property name="driverClassName" value="${jdbc.driver}"/>
-    <property name="url" value="${read.jdbc.url}"/>
-    <property name="username" value="${read.jdbc.username}"/>
-    <property name="password" value="${read.jdbc.password}"/>
-
-    <!-- Connection Pooling DBCP -->
-    <property name="validationQuery" value="SELECT 1"/>
-    <property name="initialSize" value="${dbcp.initialSize}"/>
-    <property name="maxActive" value="${dbcp.maxActive}"/>
-    <property name="maxIdle" value="${dbcp.maxIdle}"/>
-    <property name="maxWait" value="${dbcp.maxWait}"/>
-    <property name="poolPreparedStatements" value="${dbcp.poolPreparedStatements}"/>
-    <property name="defaultAutoCommit" value="${dbcp.defaultAutoCommit}"/>
+  <bean id="read_dataSourceHikari" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">
+    <!-- <property name="driverClassName" value="${db.driverClass}" /> --> <!-- 无需指定，除非系统无法自动识别 -->
+    <property name="jdbcUrl" value="${jdbc.url}" />
+    <property name="username" value="${jdbc.username}" />
+    <property name="password" value="${jdbc.password}" />
+    <!-- 连接只读数据库时配置为true，保证安全 -->
+    <property name="readOnly" value="true" />
+    <!-- 等待连接池分配连接的最大时长（毫秒），超过这个时长还没可用的连接则发生SQLException，缺省:30秒 -->
+    <property name="connectionTimeout" value="30000" />
+    <!-- 一个连接idle状态的最大时长（毫秒），超时则被释放（retired），缺省:10分钟 -->
+    <property name="idleTimeout" value="600000" />
+    <!-- 一个连接的生命时长（毫秒），超时而且没被使用则被释放（retired），缺省:30分钟，建议设置比数据库超时时长少30秒，参考MySQL wait_timeout参数（show variables like '%timeout%';） -->
+    <property name="maxLifetime" value="1800000" />
+    <!-- 连接池中允许的最大连接数。缺省值：10；推荐的公式：((core_count * 2) + effective_spindle_count) -->
+    <property name="maximumPoolSize" value="15" />
   </bean>
 
   <bean id="read_sqlSessionFactory" class="com.domain.common.framework.spring.ExtSqlSessionFactoryBean">
-    <property name="dataSource" ref="read_dataSource"/>
+    <property name="dataSource" ref="read_dataSourceHikari"/>
     <property name="mapperLocations" value="classpath*:com/domain/java/dao/base/*/*.xml"/>
     <property name="extPackages" value="com.domain.java.dao.base.ext"/>
   </bean>
 
   <bean id="read_transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-    <property name="dataSource" ref="read_dataSource"/>
+    <property name="dataSource" ref="read_dataSourceHikari"/>
   </bean>
   <tx:annotation-driven transaction-manager="read_transactionManager"/>
 
