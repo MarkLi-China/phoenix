@@ -24,13 +24,23 @@ public class PrimeProducer extends Thread {
         try {
             BigInteger p = BigInteger.ONE;
             System.out.println(Thread.currentThread().getName()); // Thread-0
-            while (!Thread.currentThread().isInterrupted())
+            while (!Thread.currentThread().isInterrupted()) {
                 queue.put(p = p.nextProbablePrime());
+                /*
+                // 如果捕获了中断异常，必须再次触发
+                try {
+                    SECONDS.sleep(1);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                    interrupt();
+                }*/
+                SECONDS.sleep(1);
+            }
         } catch (InterruptedException consumed) {
             /* Allow thread to exit */
             System.out.println("interrupted...");
             System.out.println(isInterrupted()); // false
-            interrupt();
+            // interrupt();
             System.out.println(isInterrupted()); // true
         }
     }
@@ -51,7 +61,7 @@ public class PrimeProducer extends Thread {
         BlockingQueue<BigInteger> queue = new ArrayBlockingQueue<>(10);
         PrimeProducer producer = new PrimeProducer(queue);
         producer.start();
-        while (queue.size() < 10) {
+        while (queue.size() < 5) {
             System.out.println(queue);
             try {
                 SECONDS.sleep(1);
