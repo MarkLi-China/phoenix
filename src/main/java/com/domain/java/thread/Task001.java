@@ -13,15 +13,23 @@ public class Task001 implements Runnable {
     @Override
     public void run() {
         int i = 0;
-        while (!Thread.interrupted()) {
-            System.out.println(String.format("Task run %s times...", ++i));
-            try {
+        try {
+            // 最好不要调用interrupted方法，会清除中断状态
+            // while (!Thread.interrupted()) {
+            while (!Thread.currentThread().isInterrupted()) {
+                System.out.println(String.format("Task run %s times...", ++i));
+                /*try {
+                    TimeUnit.SECONDS.sleep(1);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                    // 1. 必须再次触发中断
+                    Thread.currentThread().interrupt();
+                }*/
+                // 2. 或者直接抛出中断异常
                 TimeUnit.SECONDS.sleep(1);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-                // 必须再次触发中断
-                Thread.currentThread().interrupt();
             }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
     }
 
