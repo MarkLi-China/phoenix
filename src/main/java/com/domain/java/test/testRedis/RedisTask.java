@@ -2,6 +2,7 @@ package com.domain.java.test.testRedis;
 
 import com.domain.common.framework.redis.DefaultRedisService;
 
+import java.util.concurrent.RunnableFuture;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -11,13 +12,11 @@ import java.util.concurrent.TimeUnit;
  * @version 1.0.0
  * @since 2017/12/3
  */
-public class RedisThread extends Thread {
+public class RedisTask implements Runnable {
 
     private DefaultRedisService redis;
 
-    private boolean shutdown = false;
-
-    public RedisThread(DefaultRedisService redis) {
+    public RedisTask(DefaultRedisService redis) {
         this.redis = redis;
     }
 
@@ -28,21 +27,11 @@ public class RedisThread extends Thread {
             String str = redis.brpop("xxx", 0, TimeUnit.SECONDS);
             System.out.println(str);
         }*/
-        while (!this.isInterrupted()) {
+        while (!Thread.currentThread().isInterrupted()) {
             String str = redis.brpop("xxx", 1, TimeUnit.SECONDS);
             if (str == null) continue;
             System.out.println(str);
         }
         System.out.println("thread end...");
-    }
-
-    public void shutdown() {
-        System.out.println("shutdown...");
-        this.shutdown = true;
-    }
-
-    public void shutdown1() {
-        System.out.println("shutdown1...");
-        this.interrupt();
     }
 }

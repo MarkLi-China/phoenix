@@ -4,7 +4,7 @@ import com.domain.common.framework.redis.DefaultRedisService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.*;
 
 /**
  * TODO describe the file
@@ -22,7 +22,7 @@ public class RedisManager {
         System.out.println(redis.get("xxx"));
         // redis.brpop("xxx", 0, TimeUnit.SECONDS);
 
-        RedisThread thread = new RedisThread(redis);
+        /*RedisThread thread = new RedisThread(redis);
         thread.start();
         System.out.println("thread " + thread.getName() + " is running...");
         try {
@@ -31,6 +31,17 @@ public class RedisManager {
             e.printStackTrace();
         }
         System.out.println("shutdown thread " + thread.getName());
-        thread.shutdown();
+        thread.shutdown1();*/
+
+        ExecutorService executorService = Executors.newSingleThreadExecutor();
+        Future future = executorService.submit(new RedisTask(redis));
+        try {
+            TimeUnit.SECONDS.sleep(20);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        future.cancel(true);
+        System.out.println("end...");
+        executorService.shutdown();
     }
 }
